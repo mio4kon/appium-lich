@@ -1,0 +1,13 @@
+!EnvironmentInfo
+apk: /Users/mio4kon/code/python_workspace/appium-lich/apk/v2ex.apk
+app_activity: com.czbix.v2ex.ui.MainActivity
+app_package: com.czbix.v2ex
+appium: 1.6.4
+devices:
+- !DeviceInfo
+  device_name: 192.168.56.101:5555
+  platform_name: Android
+  platform_version: '6.0'
+html_report: /Users/mio4kon/code/python_workspace/appium-lich/report/html
+pages_yaml: /Users/mio4kon/code/python_workspace/appium-lich/data/pages.yaml
+xml_report: /Users/mio4kon/code/python_workspace/appium-lich/report/xml

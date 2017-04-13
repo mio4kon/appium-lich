@@ -1,0 +1,23 @@
+---
+HomePage:
+  dec: 主界面
+  locators:
+    -
+      name: 登录入口
+      type: id
+      value: com.czbix.v2ex:id/username_tv
+LoginPage:
+  dec: 登录页面
+  locators:
+    -
+      name: 账户
+      type: id
+      value: com.czbix.v2ex:id/account
+    -
+      name: 密码
+      type: id
+      value: com.czbix.v2ex:id/password
+    -
+      name: 登录
+      type: id
+      value: com.czbix.v2ex:id/sign_in

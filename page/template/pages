@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+__author__ = 'Mio4kon'
+from page import tools
+
+pages = tools.parse()
+
+
+def get_locater(clazz_name, method_name):
+    locators = pages[clazz_name]['locators']
+    for locator in locators:
+        if locator['name'] == method_name:
+            return locator
+
+{% for page, locators in page_list.items() %}
+class {{page}}:{% for locator in locators %}
+    {{locator}} = get_locater('{{page}}', '{{locator}}'){% endfor %}
+
+    {% endfor %}
+
+
+
+
