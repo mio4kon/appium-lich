@@ -41,7 +41,7 @@ class Config:
         self.apk_path = Config.BASE_PATH_DIR + '/apk/' + apk_name
         self.xml_report_path = Config.BASE_PATH_DIR + '/report/xml'
         self.html_report_path = Config.BASE_PATH_DIR + '/report/html'
-        self.pages_yaml_path = Config.BASE_PATH_DIR + '/data/pages.yaml'
+        self.pages_yaml_path = Config.BASE_PATH_DIR + '/page/yaml'
         self.env_yaml_path = Config.BASE_PATH_DIR + '/data/environment_info.yaml'
         self.app_activity = self.get_config(Config.TITLE_NAME, Config.VALUE_APP_ACTIVITY)
         self.app_package = self.get_config(Config.TITLE_NAME, Config.VALUE_APP_PACKAGE)
@@ -61,6 +61,3 @@ class Config:
     def get_config(self, title, value):
         return self.cp.get(title, value)
 
-
-if __name__ == '__main__':
-    print(Config.BASE_PATH_DIR)

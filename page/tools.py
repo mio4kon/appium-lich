@@ -4,16 +4,23 @@ from utils import L
 import yaml
 import jinja2
 from utils.environment import Environment
-
+import os
+import os.path
 from utils.config import Config
 
 pages_path = Environment().get_environment_info().pages_yaml
 
 
 def parse():
-    L.i('解析page.yaml, Path:' + pages_path)
-    with open(pages_path, 'r', encoding='utf-8') as f:
-        return yaml.safe_load(f)
+    L.i('解析yaml, Path:' + pages_path)
+    pages = {}
+    for root, dirs, files in os.walk(pages_path):
+        for name in files:
+            watch_file_path = os.path.join(root, name)
+            with open(watch_file_path, 'r', encoding='utf-8') as f:
+                page = yaml.safe_load(f)
+            pages.update(page)
+        return pages
 
 
 class GenPages:
@@ -21,7 +28,7 @@ class GenPages:
     def gen_page_list():
         """
         将page.yaml转换成下面dict:
-        :return: {'LoginPage': ['注册', '登录', '请输入手机号', '请输入验证码'], 'DebugPage': ['切换服务器', 'beta_http']}
+        return: {'HomePage': ['登录入口'], 'LoginPage': ['账户', '密码', '登录']}
         """
         _page_list = {}
         pages = parse()
@@ -52,5 +59,4 @@ class GenPages:
 
 
 if __name__ == '__main__':
-    env = Environment().get_environment_info()
-    print(env.pages_yaml)
+    GenPages.gen_page_py()

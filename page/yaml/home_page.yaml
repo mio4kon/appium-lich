@@ -1,0 +1,8 @@
+---
+HomePage:
+  dec: 主界面
+  locators:
+    -
+      name: 登录入口
+      type: id
+      value: com.czbix.v2ex:id/username_tv

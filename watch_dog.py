@@ -18,12 +18,9 @@ def gen_page_py():
 
 class WatchHandler(PatternMatchingEventHandler):
     patterns = ["*.yaml"]
-    watch_path = Environment().get_environment_info().pages_yaml
-    L.i(watch_path)
 
     def on_created(self, event):
-        if self.watch_path == event.src_path:
-            L.i('监听到文件: pages.yaml 发生了变化')
+        L.i('监听到文件: yaml 发生了变化')
         try:
             gen_page_py()
         except Exception as e:
@@ -33,10 +30,10 @@ class WatchHandler(PatternMatchingEventHandler):
 
 if __name__ == "__main__":
     event_handler = WatchHandler()
-    full_path = event_handler.watch_path
-    path = full_path[:full_path.rfind('/') + 1]
+    full_path = Environment().get_environment_info().pages_yaml
+    print(full_path)
     observer = Observer()
-    observer.schedule(event_handler, path)
+    observer.schedule(event_handler, full_path)
     observer.start()
     try:
         while True:

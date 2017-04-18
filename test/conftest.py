@@ -6,7 +6,7 @@ from base.action import ElementActions
 from utils.environment import Environment
 
 
-@pytest.yield_fixture(scope="module")
+@pytest.fixture()
 def action():
     env = Environment().get_environment_info()
     capabilities = {'platformName': env.devices[0].platform_name,
@@ -25,7 +25,7 @@ def action():
     driver.quit()
 
 
-@pytest.yield_fixture()
+@pytest.fixture(scope="module")
 def action2():
     env = Environment().get_environment_info()
     capabilities = {'platformName': env.devices[0].platform_name,

@@ -74,7 +74,7 @@ report shot:
 	cd project_path
 	python3 watch_dog.py
 
-打开 `project_path/data/pages.yaml`,以下面模板定位元素:
+打开 `project_path/page/yaml/xxx_page.yaml`,以下面模板定位元素:
 
 ```xml
 
@@ -105,6 +105,9 @@ class TestLogin:
         assert action.is_toast_show('欢迎回来')
 ```
 
+# ChangeLog
+
+* 将原先所有元素全都写在 `pages.yaml`中方式改为可拆分的形式(`xxx_page.yaml`),方便管理.详见: `/page/yaml/`
 
 # TODO
 
