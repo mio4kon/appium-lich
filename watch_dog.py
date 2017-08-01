@@ -19,7 +19,7 @@ def gen_page_py():
 class WatchHandler(PatternMatchingEventHandler):
     patterns = ["*.yaml"]
 
-    def on_created(self, event):
+    def on_modified(self, event):
         L.i('监听到文件: yaml 发生了变化')
         try:
             gen_page_py()
