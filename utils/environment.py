@@ -82,13 +82,13 @@ class Environment:
             infos.append(info)
         env_info = EnvironmentInfo(self.appium_v, infos, apk_path, pages_yaml_path, xml_report_path, html_report_path,
                                    app_activity, app_package)
-        with open(env_path, 'w') as f:
+        with open(env_path, 'w', encoding='utf-8') as f:
             yaml.dump(env_info, f, default_flow_style=False)
         L.i('保存环境配置 Path:' + env_path)
 
     def get_environment_info(self) -> EnvironmentInfo:
         env_path = self.config.env_yaml_path
-        with open(env_path, 'r') as f:
+        with open(env_path, 'r', encoding='utf-8') as f:
             env_info = yaml.safe_load(f)
         return env_info
 
